@@ -4,7 +4,17 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 
-module.exports = {
+const devServer = (isDev) => !isDev ? {} : {
+  devServer: {
+    open: true,
+    port: 8080,
+    contentBase: path.join(__dirname, 'public'),
+  },
+};
+
+module.exports = ({ development }) => ({
+  mode: development ? 'development' : 'production',
+  devtool: development ? 'inline-source-map' : false,
   entry: "./src/index.js",
   output: {
     filename: "[name].js",
@@ -47,5 +57,6 @@ module.exports = {
           { from: "public" },
         ],
     })
-  ]
-};
+  ],
+  ...devServer(development)
+});
