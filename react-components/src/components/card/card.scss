@@ -1,0 +1,35 @@
+.card {
+    padding: 10px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: rgb(0 0 0 / 10%) 0px 4px 12px;
+
+    &_title {
+        padding: 20px 0;
+        font-size: 30px;
+        font-weight: 600;
+        border-top: 1px solid #ababab;
+    }
+
+    &_author {
+        margin-bottom: 10px;
+        font-size: 20px;
+        color: #555;
+        font-weight: 700;
+    }
+
+    &_category {
+        margin-bottom: 10px;
+        font-size: 20px;
+        color: red;
+        font-weight: 700;
+    }
+
+    &_views {
+        color: #333;
+        font-weight: 700;
+    }
+}
